@@ -6,3 +6,4 @@ config/
 .idea/
 .vscode/
 download/
+ffmpeg-master-latest-win64-gpl/

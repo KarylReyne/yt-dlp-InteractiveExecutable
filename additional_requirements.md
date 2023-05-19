@@ -1,3 +1,3 @@
 - Python 3.11 (tested with this version, but should work with any Python 3 version)
 - pip (for installing dependencies)
-- ffmpeg and ffprobe (the executable is shipped with the windows 64 binaries, install the correct binaries if you use a different os (you might also want to download the corresponding yt-dlp executable) **don't forget to update the `ffmpeg_path` in `config/config.json`**)
+- ffmpeg and ffprobe (**don't forget to update the `ffmpeg_path` in `config/config.json`**)
