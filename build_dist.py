@@ -10,7 +10,11 @@ def build():
             '--name=yt-dlp-InteractiveExecutable',
             # '--icon=icon.ico',
             ]
-    c = "pyinstaller main.py"
+    c = "pyinstaller executable.py"
     for arg in args:
         c += " {}".format(arg)
     os.system(c)
+
+
+if __name__ == '__main__':
+    build()
