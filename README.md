@@ -4,7 +4,7 @@ yt-dlp-InteractiveExecutable is basically just a simple wrapper for [yt-dlp](htt
 ## config.json
 - **url** the URL to a video or playlist
 - **only_audio** if true, converts all videos to audio-only files
-- "write_desc": if true, saves the video descriptions to text files 
+- **write_desc** if true, saves the video descriptions to text files 
 - **video_format** supported formats are mp4 and mkv
 - **audio_format** supported formats are mp3 and wav
 - **download_path** the directory to which to save the video/audio/text files
