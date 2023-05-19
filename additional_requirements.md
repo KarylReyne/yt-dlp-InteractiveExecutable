@@ -1,3 +1,0 @@
-- Python 3.11 (tested with this version, but should work with any Python 3 version)
-- pip (for installing dependencies)
-- ffmpeg and ffprobe (**don't forget to update the `ffmpeg_path` in `config/config.json`**)
