@@ -1,14 +1,16 @@
-from config_util import get_config, InvalidConfig
+import config_util
+import os
 
 
-def create_command():
+def create_command(config_folder: str="config", config_file: str="config.json"):
+    get_config = lambda k: config_util.get_config(k, path=config_folder, file=os.sep+config_file)
     command = "yt-dlp --abort-on-error --check-formats"
 
     # raise EXCEPTIONS
     if get_config("audio_format") not in ["mp3", "wav"]:
-        raise InvalidConfig("currently only mp3 and wav are supported audio formats")
+        raise config_util.InvalidConfig("currently only mp3 and wav are supported audio formats")
     if get_config("video_format") not in ["mp4", "mkv"]:
-        raise InvalidConfig("currently only mp4 and mkv are supported video formats")
+        raise config_util.InvalidConfig("currently only mp4 and mkv are supported video formats")
 
     # OPTIONS - paths
     command += " -o {}%(title)s.%(ext)s".format(get_config("download_path"))
