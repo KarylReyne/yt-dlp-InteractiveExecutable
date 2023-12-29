@@ -5,4 +5,5 @@ dist/
 .idea/
 .vscode/
 download/
+download_cache/
 ffmpeg-master-latest-win64-gpl/
