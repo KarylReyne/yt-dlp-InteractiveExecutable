@@ -4,7 +4,7 @@ import os
 
 def create_command(config_folder: str="config", config_file: str="config.json"):
     get_config = lambda k: config_util.get_config(k, path=config_folder, file=os.sep+config_file)
-    command = "python -m yt-dlp --abort-on-error --check-formats"
+    command = "yt-dlp --abort-on-error --check-formats"
 
     # raise EXCEPTIONS
     if get_config("audio_format") not in ["mp3", "wav"]:
@@ -32,4 +32,9 @@ def create_command(config_folder: str="config", config_file: str="config.json"):
     # URL
     command += " -- "+get_config("url")
 
+    return command
+
+
+def create_update_command():
+    command = "yt-dlp --update"
     return command
