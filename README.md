@@ -1,5 +1,5 @@
 # Readme
-_yt-dlp-InteractiveExecutable_ is basically just a simple wrapper for [yt-dlp](https://github.com/yt-dlp/yt-dlp) that reads informations from a json file and constructs the corresponding command for executing yt-dlp.
+_yt-dlp-InteractiveExecutable_ is basically just a simple wrapper for [yt-dlp](https://github.com/yt-dlp/yt-dlp) that reads informations from a json file and constructs the corresponding command for executing yt-dlp. It also includes an executable for updating the yt-dlp binary.
 
 ## config.json
 - **url** the URL to a video or playlist
@@ -12,7 +12,7 @@ _yt-dlp-InteractiveExecutable_ is basically just a simple wrapper for [yt-dlp](h
 (all directory paths default to the directory of yt-dlp.exe)
 
 ## Dependencies
-- [yt-dlp](https://github.com/yt-dlp/yt-dlp): The executable comes bundled with the windows 64 binary. If you use a different OS, download the [release](https://github.com/yt-dlp/yt-dlp#release-files) you need and replace `yt-dlp.exe`.
+- [yt-dlp](https://github.com/yt-dlp/yt-dlp): The executable comes bundled with the windows 64 binary and is tested on this operating system. If you use a different OS, you can try to download the [release](https://github.com/yt-dlp/yt-dlp#release-files) you need and replace `yt-dlp.exe`. 
 - [ffmpeg and ffprobe](https://github.com/yt-dlp/FFmpeg-Builds/releases/tag/latest) (**don't forget to provide the path to the binaries in `config/config.json` under `ffmpeg_path`**)
 
 ## License
