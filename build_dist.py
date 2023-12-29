@@ -43,6 +43,9 @@ def build_updater_command():
 def main():
     shutil.copyfile(f"{WORKING_DIR+os.sep}yt-dlp.exe", f"{DISTPATH+os.sep}yt-dlp.exe")
     shutil.copyfile(f"{WORKING_DIR+os.sep}config{os.sep}config.json", f"{DISTPATH+os.sep}config{os.sep}config.json")
+    shutil.copyfile(f"{WORKING_DIR+os.sep}LICENSES{os.sep}yt-dlp-InteractiveExecutable.LICENSE", f"{DISTPATH+os.sep}LICENSES{os.sep}yt-dlp-InteractiveExecutable.LICENSE")
+    shutil.copyfile(f"{WORKING_DIR+os.sep}LICENSES{os.sep}yt-dlp.LICENSE", f"{DISTPATH+os.sep}LICENSES{os.sep}yt-dlp.LICENSE")
+    shutil.copyfile(f"{WORKING_DIR+os.sep}README.md", f"{DISTPATH+os.sep}README.md")
     for c in [build_command(), build_updater_command()]:
         try:
             subprocess.check_call(c.split(" "))
