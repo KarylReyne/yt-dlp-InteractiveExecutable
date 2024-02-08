@@ -7,3 +7,4 @@ dist/
 download/
 download_cache/
 ffmpeg-master-latest-win64-gpl/
+config/debug_config.json
