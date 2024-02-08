@@ -1,9 +1,0 @@
-{
-    "url": "",
-    "only_audio": false,
-    "write_desc": false,
-    "video_format": "mp4",
-    "audio_format": "mp3",
-    "download_path": "download/",
-    "ffmpeg_path": "ffmpeg-master-latest-win64-gpl/bin"
-}
