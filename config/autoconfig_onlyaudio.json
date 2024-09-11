@@ -1,8 +1,8 @@
 {
     "url": "",
-    "only_audio": false,
+    "only_audio": true,
     "write_desc": false,
     "video_format": "mp4",
     "audio_format": "mp3",
-    "download_path": "download/"
+    "download_path": "download/audio_only/"
 }

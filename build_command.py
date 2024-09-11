@@ -3,7 +3,8 @@ import os
 
 
 def create_command(config_folder: str="config", config_file: str="config.json"):
-    get_config = lambda k: config_util.get_config(k, path=config_folder, file=os.sep+config_file)
+    get_config = lambda k: config_util.get_config(k, path=config_folder, file=config_file)
+    ffmpeg_path = config_util.get_config("ffmpeg_path", file="program_config.json")
     command = "yt-dlp --abort-on-error --check-formats"
 
     # raise EXCEPTIONS
@@ -14,7 +15,7 @@ def create_command(config_folder: str="config", config_file: str="config.json"):
 
     # OPTIONS - paths
     command += " -o {}%(title)s.%(ext)s".format(get_config("download_path"))
-    command += " --ffmpeg-location "+get_config("ffmpeg_path")
+    command += " --ffmpeg-location "+ffmpeg_path
 
     # OPTIONS - audio
     if get_config("only_audio"):

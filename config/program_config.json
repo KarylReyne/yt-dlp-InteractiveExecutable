@@ -1,0 +1,6 @@
+{
+    "ffmpeg_path": "path/to/ffmpeg/bin",
+    "config_folder": "config",
+    "autoconfig_prefix": "autoconfig",
+    "default_config": "config.json"
+}
