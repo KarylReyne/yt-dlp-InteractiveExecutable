@@ -8,3 +8,4 @@ download/
 download_cache/
 ffmpeg-master-latest-win64-gpl/
 config/debug_*
+*.ico~

@@ -2,9 +2,9 @@ import config_util
 import os
 
 
-def create_command(config_folder: str="config", config_file: str="config.json"):
+def create_command(config_folder: str="config", config_file: str="config.json", program_config: str="program_config.json"):
     get_config = lambda k: config_util.get_config(k, path=config_folder, file=config_file)
-    ffmpeg_path = config_util.get_config("ffmpeg_path", file="program_config.json")
+    ffmpeg_path = config_util.get_config("ffmpeg_path", file=program_config)
     command = "yt-dlp --abort-on-error --check-formats"
 
     # raise EXCEPTIONS
@@ -14,7 +14,13 @@ def create_command(config_folder: str="config", config_file: str="config.json"):
         raise config_util.InvalidConfig("currently only mp4 and mkv are supported video formats")
 
     # OPTIONS - paths
-    command += " -o {}%(title)s.%(ext)s".format(get_config("download_path"))
+    download_path = get_config("download_path")
+    download_path += "/" if not download_path.endswith("/") else ""
+
+    if get_config("prepend_creator"):
+        command += " -o {}%(uploader)s_-_%(title)s.%(ext)s".format(download_path)
+    else:
+        command += " -o {}%(title)s.%(ext)s".format(download_path)
     command += " --ffmpeg-location "+ffmpeg_path
 
     # OPTIONS - audio

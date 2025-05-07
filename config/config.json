@@ -2,6 +2,7 @@
     "url": "",
     "only_audio": false,
     "write_desc": false,
+    "prepend_creator": true,
     "video_format": "mp4",
     "audio_format": "mp3",
     "download_path": "download/"

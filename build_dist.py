@@ -16,7 +16,7 @@ def build_command():
             f'--distpath={DISTPATH}',
             f'--workpath={WORKING_DIR+os.sep}dist{os.sep}windows-build',
             '--name=yt-dlp-InteractiveExecutable',
-            # '--icon=icon.ico',
+            '--icon=logo.ico',
             '-c',
             ]
     c = "pyinstaller executable.py"
@@ -31,7 +31,7 @@ def build_updater_command():
             f'--distpath={DISTPATH}',
             f'--workpath={WORKING_DIR+os.sep}dist{os.sep}windows-build-updater',
             '--name=yt-dlp-InteractiveExecutable_Updater',
-            # '--icon=icon.ico',
+            '--icon=updater_logo.ico',
             '-c',
             ]
     c = "pyinstaller Update_yt-dlp.py"
