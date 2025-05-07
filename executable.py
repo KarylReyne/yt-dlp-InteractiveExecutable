@@ -5,7 +5,7 @@ from pyuac import main_requires_admin
 import config_util
 from build_command import create_command
 
-DEBUG_MODE = True
+DEBUG_MODE = False
 
 @main_requires_admin
 def main():
