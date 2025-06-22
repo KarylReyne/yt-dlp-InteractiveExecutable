@@ -9,6 +9,7 @@ _yt-dlp-InteractiveExecutable_ is basically just a simple wrapper for [yt-dlp](h
 - **video_format** supported formats are mp4 and mkv
 - **audio_format** supported formats are mp3 and wav
 - **download_path** the directory to which to save the video/audio/text files
+- **custom_options** here you can provide additional yt-dlp options
 (all directory paths default to the directory of yt-dlp.exe)
 
 ## program_config.json

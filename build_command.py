@@ -36,6 +36,9 @@ def create_command(config_folder: str="config", config_file: str="config.json", 
     if get_config("write_desc"):
         command += " --write-description"
 
+    # OPTIONS - custom
+    command += " "+get_config("custom_options")
+
     # URL
     command += " -- "+get_config("url")
 

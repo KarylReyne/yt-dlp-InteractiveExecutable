@@ -5,5 +5,6 @@
     "prepend_creator": true,
     "video_format": "mp4",
     "audio_format": "mp3",
-    "download_path": "download/"
+    "download_path": "download/",
+    "custom_options": ""
 }
