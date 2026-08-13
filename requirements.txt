@@ -1,2 +1,2 @@
-pyinstaller==5.11.0
+pyinstaller==6.15.0
 pyuac==0.0.3
