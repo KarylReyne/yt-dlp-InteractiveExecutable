@@ -9,3 +9,7 @@ download_cache/
 ffmpeg-master-latest-win64-gpl/
 config/debug_*
 *.ico~
+*.kra~
+yt-dlp-plugins/*
+bgutil-ytdlp-pot-provider/*
+!bgutil-ytdlp-pot-provider

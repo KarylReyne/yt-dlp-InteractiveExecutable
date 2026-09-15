@@ -1,13 +1,10 @@
 import os
 import subprocess
-import pyuac
-from pyuac import main_requires_admin
 import config_util
 from build_command import create_command
 
-DEBUG_MODE = False
+DEBUG_MODE = True
 
-@main_requires_admin
 def main():
     program_config = "debug_" if DEBUG_MODE else ""
     program_config += "program_config.json"
@@ -20,9 +17,9 @@ def main():
 
     if DEBUG_MODE:
         print("[DEBUG] evaluating the debug config file...")
-        commands.append(create_command(config_folder, "debug_config.json", program_config))
+        commands.append(create_command(config_folder, "debug_config.json", program_config, debug=True))
     else:
-        print(f"Would you like to evaluate all autoconfig files?\n y: yes\n n: no, evaluate only {default}\n *: halts execution\n> ", end="")
+        print(f"Would you like to evaluate all autoconfig files?\n y: yes\n n: no, evaluate only {default}\n>", end="")
         usr_input = input()
 
         if usr_input == "y":
@@ -39,7 +36,6 @@ def main():
 
         else:
             print("Execution terminated.")
-
 
     for c in commands:
         try:

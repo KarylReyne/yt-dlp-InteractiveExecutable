@@ -2,7 +2,7 @@ import config_util
 import os
 
 
-def create_command(config_folder: str="config", config_file: str="config.json", program_config: str="program_config.json"):
+def create_command(config_folder: str="config", config_file: str="config.json", program_config: str="program_config.json", debug: bool=False):
     get_config = lambda k: config_util.get_config(k, path=config_folder, file=config_file)
     ffmpeg_path = config_util.get_config("ffmpeg_path", file=program_config)
     command = "yt-dlp --abort-on-error --check-formats"
@@ -16,7 +16,6 @@ def create_command(config_folder: str="config", config_file: str="config.json", 
     # OPTIONS - paths
     download_path = get_config("download_path")
     download_path += "/" if not download_path.endswith("/") else ""
-
     if get_config("prepend_creator"):
         command += " -o {}%(uploader)s_-_%(title)s.%(ext)s".format(download_path)
     else:
@@ -36,8 +35,20 @@ def create_command(config_folder: str="config", config_file: str="config.json", 
     if get_config("write_desc"):
         command += " --write-description"
 
+    # OPTIONS - Proof of Origin Token
+    po_token_provider = config_util.get_config("po_token_provider", file=program_config)
+    assert po_token_provider in ["bgutil-ytdlp-pot-provider.zip", ""]
+    if po_token_provider != "":
+        command += " --extractor-args youtube:player-client=web_creator;fetch_pot=always"
+        command += " --extractor-args youtubepot-bgutilscript:server_home=bgutil-ytdlp-pot-provider/server"
+        command += " --js-runtimes node"
+
     # OPTIONS - custom
     command += " "+get_config("custom_options")
+
+    # debug
+    if debug:
+        command += " --extractor-args youtubetab:skip=authcheck --cookies-from-browser firefox -v"
 
     # URL
     command += " -- "+get_config("url")

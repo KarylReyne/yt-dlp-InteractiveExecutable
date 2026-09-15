@@ -5,6 +5,7 @@ import pyuac
 from pyuac import main_requires_admin
 import subprocess
 from pathlib import Path
+from executable import DEBUG_MODE
 
 WORKING_DIR = os.path.abspath(os.getcwd())
 DISTPATH = f"{WORKING_DIR+os.sep}dist{os.sep}windows-dist{os.sep}yt-dlp-InteractiveExecutable"
@@ -42,6 +43,7 @@ def build_updater_command():
 
 @main_requires_admin
 def main():
+    assert not DEBUG_MODE, "executable is in debug mode!"
     # update requirements.txt
     subprocess.check_call("pipreqs . --force")
     # create directories
@@ -50,6 +52,8 @@ def main():
     Path(f"{DISTPATH+os.sep}config").mkdir(parents=True, exist_ok=True)
     Path(f"{DISTPATH+os.sep}LICENSES").mkdir(parents=True, exist_ok=True)
     Path(f"{DISTPATH+os.sep}download").mkdir(parents=True, exist_ok=True)
+    Path(f"{DISTPATH+os.sep}yt-dlp-plugins").mkdir(parents=True, exist_ok=True)
+    Path(f"{DISTPATH+os.sep}bgutil-ytdlp-pot-provider").mkdir(parents=True, exist_ok=True)
     # copy files
     shutil.copyfile(f"{WORKING_DIR+os.sep}yt-dlp.exe", f"{DISTPATH+os.sep}yt-dlp.exe")
     shutil.copyfile(f"{WORKING_DIR+os.sep}config{os.sep}config.json", f"{DISTPATH+os.sep}config{os.sep}config.json")
