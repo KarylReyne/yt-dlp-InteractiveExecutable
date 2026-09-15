@@ -36,4 +36,5 @@ This release of _yt-dlp-InteractiveExecutable_ is licensed under the BSD 3-Claus
 
 ## FAQ
 **_yt-dlp-InteractiveExecutable_ fails due to a `subprocess.TimeoutExpired` exception after using the Updater.**
+
 This sometimes happens. Run the _yt-dlp-InteractiveExecutable_ executable a second time and it should work again.
